@@ -65,9 +65,9 @@ def measure():
 
 	return 5
 
-def display():
+def display(moisture):
 	oled.update(moisture)
-def sync():
+def sync(moisture):
 	losant_class
 
 def main():
