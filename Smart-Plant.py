@@ -80,7 +80,7 @@ def main():
 		import pump_class as pump
 		pump.init()
 	if flags[2]:
-		import losant_class as losant:
+		import losant_class as losant
 		losant.init()
 
 
