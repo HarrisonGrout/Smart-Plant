@@ -2,10 +2,11 @@
 
 import os
 
-dirName = os.path.dirname(os.path.abspath(__file__))
+dirname = os.path.dirname(os.path.abspath(__file__))
 
 
 def init():
+	print("\n\n")
 	print("Welcome to the smart plant system developed by Harrison Grout\n")
 	print("Please follow the prompts to enable certain settings:")
 
@@ -38,30 +39,13 @@ def init():
 	if (ans == "Y") | (ans == "y"):
 		print("\tLosant in use")
 		losantflag = True
-
-		# elif opt in ("-l", "--losant"):
-		# 	import losantHelper
-		# 	LOSANT_CLOUD = True
-		# 	filepath = '/'.join([dirName, arg])
-		# 	if os.path.abspath(arg):
-		# 		filepath = arg
-		# 	with open( filepath ) as f:
-		# 		try:
-		# 			losantConfig = json.load(f)
-		# 		except:
-		# 			print("ERROR: expecting JSON file")
-		# 			sys.exit()
-		# 		if not losantHelper.isConfigValid(losantConfig):
-		# 			sys.exit()
-
-
-
 	elif (ans == "N") | (ans == "n"):
 		print("\tLosant not in use")
 		losantflag = False
 	else:
 		print("\t!!!Invalid input, ignoring Losant!!!")
 		losantflag = False	
+	return [oledflag, pumpflag, losantflag]
 
 
 
@@ -76,7 +60,11 @@ def init():
 
 
 def main():
-	init()
+	flags = init()
+	
+	if flags[0]:
+		import oled_class as oled
+		oled.init()
 
 
 
