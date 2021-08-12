@@ -1,4 +1,6 @@
-import serial, sys, os, getopt, time, signal, json
+#import serial, sys, os, getopt, time, signal, json
+
+import os
 
 dirName = os.path.dirname(os.path.abspath(__file__))
 
