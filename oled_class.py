@@ -5,7 +5,7 @@ def init():
 	oledExp.setVerbosity(-1)
 	status  = oledExp.driverInit()
 	if status != 0:
-		print 'ERROR initializing OLED Expansion'
+		print ('ERROR initializing OLED Expansion')
 
 	## write the default text
 	# write the first word on the second line and the right side of the screen
