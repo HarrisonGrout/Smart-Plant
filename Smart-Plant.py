@@ -91,7 +91,7 @@ def main():
 
 	while(True):
 		moisture = measure()
-		print("Moisture: " + str(moisture) + "\r")
+		print("Moisture: " + str(moisture), end='\r')
 		display(moisture)
 		if losantflag:
 			sync(moisture)
