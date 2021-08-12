@@ -60,7 +60,7 @@ if serialPort.isOpen() == False:
 
 
 def measure():
-	serialPort.write('r')
+	serialPort.write("r")
 	try:
 		moisture = serialPort.readline()
 
