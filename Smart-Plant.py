@@ -1,6 +1,6 @@
 #import serial, sys, os, getopt, time, signal, json
 
-import os, serial
+import os, serial, random
 import oled_class as oled
 import pump_class as pump
 import losant_class as losant
@@ -66,7 +66,7 @@ def init():
 
 def measure():
 
-	return 5
+	return random.randint()
 
 def display(moisture):
 	oled.update(moisture)
