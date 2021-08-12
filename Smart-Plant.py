@@ -66,7 +66,7 @@ def init():
 
 def measure():
 
-	return random.randint()
+	return random.randint(1,10)
 
 def display(moisture):
 	oled.update(moisture)
