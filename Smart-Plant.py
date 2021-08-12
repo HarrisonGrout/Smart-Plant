@@ -63,7 +63,7 @@ def init():
 
 def measure():
 
-	return moisture
+	return 5
 
 def display():
 	oled.update(moisture)
