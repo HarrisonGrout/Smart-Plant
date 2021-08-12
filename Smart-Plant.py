@@ -1,6 +1,9 @@
 #import serial, sys, os, getopt, time, signal, json
 
 import os, serial
+import oled_class as oled
+import pump_class as pump
+import losant_class as losant
 
 dirname = os.path.dirname(os.path.abspath(__file__))
 
@@ -74,13 +77,10 @@ def main():
 	flags = init()
 	
 	if flags[0]:
-		import oled_class as oled
 		oled.init()
 	if flags[1]:
-		import pump_class as pump
 		pump.init()
 	if flags[2]:
-		import losant_class as losant
 		losant.init()
 
 
