@@ -44,7 +44,6 @@ elif (ans == "N") | (ans == "n"):
 else:
 	print("\t!!!Invalid input, ignoring Losant!!!")
 	losantflag = False	
-return [oledflag, pumpflag, losantflag]
 
 serialPort = serial.Serial('/dev/ttyS1', 9600, timeout=2)
 if serialPort.isOpen() == False:
