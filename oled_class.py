@@ -11,7 +11,9 @@ def init():
 	# write the first word on the second line and the right side of the screen
 	oledExp.setTextColumns()
 	oledExp.setCursor(0,1)
-	oledExp.write('Moisture: ')
+	oledExp.write('Moisture:')
 
-	oledExp.setCursor(1,0)
-	oledExp.write("___________________________________________________________")
+def update(moisture):
+	oledExp.setTextColumns()
+	oledExp.setCursor(0,9)
+	oledExp.write("" + str(moisture)

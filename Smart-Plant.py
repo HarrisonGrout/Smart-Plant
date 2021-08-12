@@ -1,6 +1,6 @@
 #import serial, sys, os, getopt, time, signal, json
 
-import os
+import os, serial
 
 dirname = os.path.dirname(os.path.abspath(__file__))
 
@@ -47,6 +47,10 @@ def init():
 		losantflag = False	
 	return [oledflag, pumpflag, losantflag]
 
+	serialPort = serial.Serial('/dev/ttyS1', 9600, timeout=2)
+	if serialPort.isOpen() == False:
+		print("ERROR: Failed to initialize serial port!")
+		exit()
 
 
 
@@ -57,7 +61,14 @@ def init():
 
 
 
+def measure():
 
+	return moisture
+
+def display():
+	oled.update(moisture)
+def sync():
+	losant_class
 
 def main():
 	flags = init()
@@ -65,6 +76,23 @@ def main():
 	if flags[0]:
 		import oled_class as oled
 		oled.init()
+	if flags[1]:
+		import pump_class as pump
+		pump.init()
+	if flags[2]:
+		import losant_class as losant:
+		losant.init()
+
+
+
+	while(True):
+		moisture = measure()
+		display(moisture)
+		if flags[2]:
+			sync(moisture)
+		if moisture < -100:
+			water()
+		time.sleep(1)
 
 
 
