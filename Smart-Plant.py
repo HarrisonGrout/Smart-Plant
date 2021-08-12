@@ -72,7 +72,7 @@ def measure():
 	except:
 		moisture = None
 
-	return moisture
+	return int(moisture)
 
 def display(moisture):
 	oled.update(moisture)
