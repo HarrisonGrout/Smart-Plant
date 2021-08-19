@@ -5,7 +5,7 @@
 import os, serial, random, time
 import oled_class as oled
 import pump_class as pump
-import losant_class as losant
+from losant_class import Losant
 
 print("\n\n")
 print("Welcome to the smart plant system developed by Harrison Grout\n")
