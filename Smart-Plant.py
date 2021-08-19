@@ -85,9 +85,9 @@ def main():
 	if pumpflag:
 		pump.init()
 	if losantflag:
-		deviceid = "6115def5ca38d0000666d32b"
-		key = "336f5db1-749f-44f9-a052-a9a5308791bf"
-		secret = "417176a8313232a7a512da728ef61e1a38a27b8cf1676ee0913a8932f3eac003"
+		deviceid = "6114ba6dca38d0000666aed7"
+		key = "fc736c44-ac77-497b-9bca-7eea26403226"
+		secret = "d75e40850d15eba7695af4fcf7ba37983e64bfee2241140fc8450f32bca2a020"
 		losant = Losant(deviceid, key, secret, oncommand)
 
 
