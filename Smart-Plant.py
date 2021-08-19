@@ -74,7 +74,7 @@ def oncommand(device, payload):
 		if payload["payload"] == "start":
 			pumpState = "pumping"
 		elif payload["payload"] == "stop":
-			pumpState = "idle   "
+			pumpState = "idle"
 	else:
 		print("Failure")
 
