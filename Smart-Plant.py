@@ -71,8 +71,6 @@ def oncommand(device, payload):
 	print("Command received:\n\n" + str(payload) + "\n\n")
 	if payload["name"] == "wateringState":
 		print("Watering state is now: " + str(payload["payload"]) + "\n")
-		global factor 
-		factor = int(payload["payload"])
 	else:
 		print("Failure")
 
@@ -98,9 +96,7 @@ def main():
 		print("Moisture: " + str(moisture), end='\r')
 		display(moisture)
 		if losantflag:
-			losant.sendSingle(["Moisture", moisture])
-		if moisture < -100:
-			water()
+			losant.sendSingle(["Moisture", str(moisture)])
 		time.sleep(1)
 
 
