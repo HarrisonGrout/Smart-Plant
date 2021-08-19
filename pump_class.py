@@ -13,6 +13,8 @@ class Pump(object):
 		if not this.initialized:
 			if relayExp.driverInit(RELAYADDR) != 0:
 				print("ERROR: Could not initialize Relay Expansion!")
+			else:
+				this.initialized = True
 
 	def setState(this, state):
 		if this.initialized:
