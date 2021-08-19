@@ -3,8 +3,8 @@
 #Onion 1737
 
 import os, serial, random, time
-import oled_class as oled
-import pump_class as pump
+from oled_class import Oled
+from pump_class import Pump
 from losant_class import Losant
 
 print("\n\n")
@@ -82,9 +82,9 @@ def sync(moisture):
 
 def main():
 	if oledflag:
-		oled.init()
+		oled = Oled()
 	if pumpflag:
-		pump.init()
+		pump = Pump()
 		pumpState = "idle"
 	if losantflag:
 		deviceid = "6114ba6dca38d0000666aed7"
