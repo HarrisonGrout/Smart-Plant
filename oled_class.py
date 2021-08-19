@@ -17,7 +17,7 @@ class Oled(object):
 
 	def updateMoisture(this,moisture):
 		oledExp.setTextColumns()
-		oledExp.setCursor(0,11)
+		oledExp.setCursor(0,10)
 		oledExp.write("" + str(moisture) + "  ")
 
 	def updateState(this,state):
