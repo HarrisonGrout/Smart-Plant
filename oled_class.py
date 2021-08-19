@@ -16,4 +16,4 @@ def init():
 def update(moisture):
 	oledExp.setTextColumns()
 	oledExp.setCursor(0,11)
-	oledExp.write("" + str(moisture))
+	oledExp.write("" + str(moisture) + "  ")
