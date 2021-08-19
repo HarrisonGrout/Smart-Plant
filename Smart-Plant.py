@@ -73,8 +73,10 @@ def oncommand(device, payload):
 	else:
 		print("Failure")
 
-def display(moisture):
-	oled.update(moisture)
+def display(moisture, pumpState = None):
+	oled.updateMoisture(moisture)
+	if pumpState:
+		oled.updateState(pumpState)
 def sync(moisture):
 	losant_class
 
@@ -83,6 +85,7 @@ def main():
 		oled.init()
 	if pumpflag:
 		pump.init()
+		pumpState = "idle"
 	if losantflag:
 		deviceid = "6114ba6dca38d0000666aed7"
 		key = "fc736c44-ac77-497b-9bca-7eea26403226"
@@ -93,7 +96,10 @@ def main():
 	while(True):
 		moisture = int(measure())
 		print("Moisture: " + str(moisture))
-		display(moisture)
+		if pumpflag:
+			display(moisture, pumpState)
+		else:
+			display(moisture)
 		if losantflag:
 			losant.sendSingle(["Moisture", moisture])
 		time.sleep(1)

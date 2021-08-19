@@ -13,7 +13,12 @@ def init():
 	oledExp.setCursor(0,1)
 	oledExp.write('Moisture:')
 
-def update(moisture):
+def updateMoisture(moisture):
 	oledExp.setTextColumns()
 	oledExp.setCursor(0,11)
 	oledExp.write("" + str(moisture) + "  ")
+
+def updateState(state):
+	oledExp.setTextColumns()
+	oledExp.setCursor(0,15)
+	oledExp.write(str(state))
