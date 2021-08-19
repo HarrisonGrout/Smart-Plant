@@ -24,4 +24,5 @@ class Oled(object):
 		oledExp.setTextColumns()
 		oledExp.setCursor(0,14)
 		if state == "idle":
-			oledExp.write(str(state) + "   ")
+			state = state + "   "
+		oledExp.write(str(state) )
