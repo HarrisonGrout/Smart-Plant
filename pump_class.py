@@ -17,8 +17,10 @@ class Pump(object):
 	def setState(this, state):
 		if this.initialized:
 			if state == "idle":
+				print("set channel idle")
 				relayExp.setChannel(RELAY_EXP_ADDR, RELAY_EXP_CHANNEL, 0)
 			elif state == "pump":
+				print("set channel pump")
 				relayExp.setChannel(RELAY_EXP_ADDR, RELAY_EXP_CHANNEL, 1)
 			else:
 				print("INVALID PUMP STATE! Not pumping")
