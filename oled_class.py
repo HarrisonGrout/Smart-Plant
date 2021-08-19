@@ -26,4 +26,4 @@ class Oled(object):
 		oledExp.write(str(state))
 		if state == "idle":
 			oledExp.setCursor(0,18)
-			oledExp.write("   ")
+			oledExp.write(str("   "))
