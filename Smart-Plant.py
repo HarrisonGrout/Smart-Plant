@@ -80,31 +80,25 @@ def display(moisture, pumpState = None):
 def sync(moisture):
 	losant_class
 
-def main():
-	if oledflag:
-		oled = Oled()
+if oledflag:
+	oled = Oled()
+if pumpflag:
+	pump = Pump()
+	pumpState = "idle"
+if losantflag:
+	deviceid = "6114ba6dca38d0000666aed7"
+	key = "fc736c44-ac77-497b-9bca-7eea26403226"
+	secret = "d75e40850d15eba7695af4fcf7ba37983e64bfee2241140fc8450f32bca2a020"
+	losant = Losant(deviceid, key, secret, oncommand)
+
+
+while(True):
+	moisture = int(measure())
+	print("Moisture: " + str(moisture))
 	if pumpflag:
-		pump = Pump()
-		pumpState = "idle"
+		display(moisture, pumpState)
+	else:
+		display(moisture)
 	if losantflag:
-		deviceid = "6114ba6dca38d0000666aed7"
-		key = "fc736c44-ac77-497b-9bca-7eea26403226"
-		secret = "d75e40850d15eba7695af4fcf7ba37983e64bfee2241140fc8450f32bca2a020"
-		losant = Losant(deviceid, key, secret, oncommand)
-
-
-	while(True):
-		moisture = int(measure())
-		print("Moisture: " + str(moisture))
-		if pumpflag:
-			display(moisture, pumpState)
-		else:
-			display(moisture)
-		if losantflag:
-			losant.sendSingle(["Moisture", moisture])
-		time.sleep(1)
-
-
-
-if __name__ == "__main__":
-	main()
+		losant.sendSingle(["Moisture", moisture])
+	time.sleep(1)
