@@ -68,7 +68,6 @@ def measure():
 	return moisture
 
 def oncommand(device, payload):
-	print("Command received:\n\n" + str(payload) + "\n\n")
 	if payload["name"] == "wateringState":
 		print("Watering state is now: " + str(payload["payload"]) + "\n")
 	else:
@@ -93,7 +92,7 @@ def main():
 
 	while(True):
 		moisture = measure()
-		print("Moisture: " + str(moisture))
+		print("Moisture: " + str(int(moisture)))
 		display(moisture)
 		if losantflag:
 			losant.sendSingle(["Moisture", int(moisture)])
