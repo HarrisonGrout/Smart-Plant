@@ -96,7 +96,7 @@ def main():
 		print("Moisture: " + str(moisture), end='\r')
 		display(moisture)
 		if losantflag:
-			losant.sendSingle(["Moisture", str(moisture)])
+			losant.sendSingle(["Moisture", int(moisture)])
 		time.sleep(1)
 
 
