@@ -70,6 +70,7 @@ def measure():
 def oncommand(device, payload):
 	if payload["name"] == "wateringState":
 		print("Watering state is now: " + str(payload["payload"]) + "\n")
+		global pumpState
 		if payload["payload"] == "start":
 			pumpState = "pumping"
 		elif payload["payload"] == "stop":
