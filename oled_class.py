@@ -22,5 +22,5 @@ class Oled(object):
 
 	def updateState(this,state):
 		oledExp.setTextColumns()
-		oledExp.setCursor(0,15)
+		oledExp.setCursor(0,14)
 		oledExp.write(str(state))
