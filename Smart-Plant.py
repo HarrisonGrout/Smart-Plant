@@ -91,11 +91,11 @@ def main():
 
 
 	while(True):
-		moisture = measure()
-		print("Moisture: " + str(int(moisture)))
+		moisture = int(measure())
+		print("Moisture: " + str(moisture))
 		display(moisture)
 		if losantflag:
-			losant.sendSingle(["Moisture", int(moisture)])
+			losant.sendSingle(["Moisture", moisture])
 		time.sleep(1)
 
 
