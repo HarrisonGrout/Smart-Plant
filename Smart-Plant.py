@@ -65,7 +65,7 @@ def measure():
 	except:
 		moisture = None
 
-	return float(moisture/10.0)
+	return moisture
 
 def oncommand(device, payload):
 	print("Command received:\n\n" + str(payload) + "\n\n")
