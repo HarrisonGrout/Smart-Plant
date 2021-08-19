@@ -102,6 +102,7 @@ while(True):
 	print("Moisture: " + str(moisture))
 	if pumpflag:
 		display(moisture, pumpState)
+		pump.setState(pumpState)
 	else:
 		display(moisture)
 	if losantflag:
