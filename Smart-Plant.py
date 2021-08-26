@@ -12,6 +12,10 @@ print("Welcome to the smart plant system developed by Harrison Grout\n")
 print("Please follow the prompts to enable certain settings:")
 
 
+PUMPTIME = 0.5
+UPDATETIME = 1
+
+
 #Input parsing to determine usage. Could be command line instead.
 
 ans = input("\tIs there an OLED attached: (Y/N): ")
@@ -72,7 +76,9 @@ def oncommand(device, payload):
 		print("Watering state is now: " + str(payload["payload"]) + "\n")
 		global pumpState
 		global pumpflag
+		global startTime
 		if (payload["payload"] == "start") and (pumpflag):
+			startTime = time.time()
 			pumpState = "pumping"
 		elif (payload["payload"] == "stop") and (pumpflag):
 			pumpState = "idle"
@@ -102,10 +108,12 @@ while(True):
 	moisture = int(measure())
 	print("Moisture: " + str(moisture))
 	if pumpflag and oledflag:
-		display(moisture, pumpState)
+		if (pumpState == "start") and (time.time() - startTime > PUMPTIME):
+			pumpState = "idle"
 		pump.setState(pumpState)
+		display(moisture, pumpState)
 	elif oledflag:
 		display(moisture)
 	if losantflag:
 		losant.sendSingle(["Moisture", moisture])
-	time.sleep(1)
+	time.sleep(UPDATETIME)
