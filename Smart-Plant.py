@@ -12,7 +12,7 @@ print("Welcome to the smart plant system developed by Harrison Grout\n")
 print("Please follow the prompts to enable certain settings:")
 
 
-PUMPTIME = 0.5
+PUMPTIME = 3
 UPDATETIME = 1
 
 
