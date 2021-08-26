@@ -71,9 +71,10 @@ def oncommand(device, payload):
 	if payload["name"] == "wateringState":
 		print("Watering state is now: " + str(payload["payload"]) + "\n")
 		global pumpState
-		if payload["payload"] == "start":
+		global pumpflag
+		if (payload["payload"] == "start") and (pumpflag):
 			pumpState = "pumping"
-		elif payload["payload"] == "stop":
+		elif (payload["payload"] == "stop") and (pumpflag):
 			pumpState = "idle"
 	else:
 		print("Failure")
@@ -100,10 +101,10 @@ if losantflag:
 while(True):
 	moisture = int(measure())
 	print("Moisture: " + str(moisture))
-	if pumpflag:
+	if pumpflag and oledflag:
 		display(moisture, pumpState)
 		pump.setState(pumpState)
-	else:
+	elif oledflag:
 		display(moisture)
 	if losantflag:
 		losant.sendSingle(["Moisture", moisture])
