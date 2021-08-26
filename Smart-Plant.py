@@ -79,6 +79,7 @@ def oncommand(device, payload):
 		global startTime
 		if (payload["payload"] == "start") and (pumpflag):
 			startTime = time.time()
+			print(startTime)
 			pumpState = "pumping"
 		elif (payload["payload"] == "stop") and (pumpflag):
 			pumpState = "idle"
@@ -108,8 +109,10 @@ while(True):
 	moisture = int(measure())
 	print("Moisture: " + str(moisture))
 	if pumpflag and oledflag:
+		print("\t" + str(startTime) + " " + str(time.time()))
 		if (pumpState == "start") and (time.time() - startTime > PUMPTIME):
 			pumpState = "idle"
+			relayExp.setChannel(7, 0, 0)
 		pump.setState(pumpState)
 		display(moisture, pumpState)
 	elif oledflag:
