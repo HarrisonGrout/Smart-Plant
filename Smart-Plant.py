@@ -9,17 +9,15 @@ from losant_class import Losant
 
 print("\n\n")
 print("Welcome to the smart plant system developed by Harrison Grout\n")
-print("Please follow the prompts to enable certain settings:")
-
 
 PUMPTIME = 5
 UPDATETIME = 1
-
 
 #Input parsing to determine usage. Could be command line instead.
 
 MANUALINPUTS = False
 if MANUALINPUTS:
+	print("Please follow the prompts to enable certain settings:")
 	ans = input("\tIs there an OLED attached: (Y/N): ")
 	if (ans == "Y") | (ans == "y"):
 		print("\tOLED attached")
@@ -116,7 +114,6 @@ while(True):
 	moisture = int(measure())
 	print("Moisture: " + str(moisture))
 	if pumpflag and oledflag:
-		print("\tTime since start: " + str(time.time() - startTime))
 		if (pumpState == "pumping") and (int(time.time() - startTime) > PUMPTIME):
 			pumpState = "idle"
 		pump.setState(pumpState)
