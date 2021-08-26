@@ -98,6 +98,7 @@ if oledflag:
 if pumpflag:
 	pump = Pump()
 	pumpState = "idle"
+	startTime = 0
 if losantflag:
 	deviceid = "6114ba6dca38d0000666aed7"
 	key = "fc736c44-ac77-497b-9bca-7eea26403226"
