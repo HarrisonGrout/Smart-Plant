@@ -113,7 +113,6 @@ while(True):
 		print("\tTime since start: " + str(time.time() - startTime))
 		if (pumpState == "pumping") and (int(time.time() - startTime) > PUMPTIME):
 			pumpState = "idle"
-			relayExp.setChannel(7, 0, 0)
 		pump.setState(pumpState)
 		display(moisture, pumpState)
 	elif oledflag:
