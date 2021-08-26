@@ -111,7 +111,7 @@ while(True):
 	print("Moisture: " + str(moisture))
 	if pumpflag and oledflag:
 		print("\t" + str(startTime) + " " + str(time.time()))
-		if (pumpState == "start") and (time.time() - startTime > PUMPTIME):
+		if (pumpState == "start") and (int(time.time() - startTime) > PUMPTIME):
 			pumpState = "idle"
 			relayExp.setChannel(7, 0, 0)
 		pump.setState(pumpState)
